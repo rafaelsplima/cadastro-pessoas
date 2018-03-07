@@ -1,0 +1,100 @@
+<div class="modal-adicionar-pessoa">
+	<script type="text/ng-template" id="idModalAdicionarPessoa" />
+	<div class="modal-header">
+		<div class="pull-right">
+			<button type="button" ng-click="fechar()" class="close">
+				<span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+			</button>
+		</div>
+		<h4>Adicionar Pessoa</h4>
+	</div>
+
+	<div class="modal-body">
+		<div class="row">
+			<div class="col-md-12">
+				<form novalidate name="adicionarPessoaForm" class="form-horizontal">
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-3" for="cpf">CPF*</label>
+						<div style="margin-bottom: 10px;" class="col-md-9">
+							<input id="textCpf" name="textCpf" type="number" ng-model="cpf"
+								placeholder="Insira o Cpf" class="form-control input-md"
+								required />
+
+							<div class="text-left"
+								ng-show="adicionarPessoaForm.textCpf.$touched && 
+											adicionarPessoaForm.textCpf.$error.required">
+								<span class ="campo-requerid"> <b> Cpf obrigatório <b></span>
+							</div>
+						</div>
+
+
+						<label class="col-md-3" for="nome">Nome*</label>
+						<div style="margin-bottom: 10px;" class="col-md-9">
+							<input id="textNome" name="textNome" type="text" ng-model="nome"
+								placeholder="Insira o nome" class="form-control input-md"
+								required />
+
+							<div class="text-left"
+								ng-show="adicionarPessoaForm.textNome.$touched && 
+											adicionarPessoaForm.textNome.$error.required">
+								<span class ="campo-requerid"> <b> Nome obrigatório </b> </span>		
+							</div>
+						</div>
+
+						<label class="col-md-3" for="nome">Nascimento:</label>
+						<div style="margin-bottom: 10px;" class="col-md-3">
+							<input id="textDia" name="textDia" type="number" ng-model="dia"
+								placeholder="dia" class="form-control input-md" />
+						</div>
+
+						<div style="margin-bottom: 10px;" class="col-md-3">
+							<input id="textMes" name="textMes" type="number" ng-model="mes"
+								placeholder="mes" class="form-control input-md" />
+						</div>
+
+
+						<div style="margin-bottom: 10px;" class="col-md-3">
+							<input id="textAno" name="textMes" type="number" ng-model="ano"
+								placeholder="ano" class="form-control input-md" />
+						</div>
+
+
+						<label class="col-md-3" for="nome">Peso:</label>
+						<div style="margin-bottom: 10px;" class="col-md-9">
+							<input id="textPeso" name="textPeso" type="number"
+								ng-model="peso" placeholder="peso" class="form-control input-md" />
+						</div>
+
+
+						<label class="col-md-3" for="textinputArea">UF</label>
+						<div style="margin-bottom: 10px;" class="col-md-9">
+
+							<select class="form-control select-md" ng-model="uf.id">
+								<option value="" disabled>Selecione UF</option>
+								<option ng-repeat="geoname in ufList.geonames"
+									value="{{geoname.name}}">{{geoname.name}}</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<button id="singlebutton" name="singlebutton"
+						class="btn btn-success width100" ng-disabled="adicionarPessoaForm.$invalid"
+						ng-click="adicionarPessoa()">Adicionar</button>
+				</div>
+				<div class="col-md-6">
+					<button type="button" ng-click="fechar()" class="btn btn-danger width100 ">
+						Fechar</button>
+				</div>
+			</div>
+		</div>
+		</script>
+	</div>

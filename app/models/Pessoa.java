@@ -1,0 +1,167 @@
+package models;
+
+import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import entitys.response.AbstractResponse;
+import play.db.ebean.Model;
+
+@Entity
+@Table(name = "pessoa")
+public class Pessoa extends Model {
+	private static final long serialVersionUID = -143072177321560L;
+
+	public static Finder<Long, Pessoa> find = new Finder<Long, Pessoa>(Long.class, Pessoa.class);
+
+	/**
+	 * Atributos
+	 */
+	@Id
+	private Long cpf;
+
+	private String nome;
+
+	private String dataNascimento;
+
+	private BigDecimal peso;
+
+	private String uf;
+
+	/**
+	 * Get/Set
+	 *
+	 */
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+	
+	public String getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public BigDecimal getPeso() {
+		return peso;
+	}
+
+	public void setPeso(BigDecimal peso) {
+		this.peso = peso;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	/**
+	 * Busca pessoa a partir do seu cpf
+	 * 
+	 * @param cpf
+	 *            cpf da pessoa a ser buscado
+	 * @return Pessoa
+	 */
+
+	public static Pessoa findByCPF(Long cpf) {
+		return find.where().eq("cpf", cpf).findUnique();
+	}
+
+	/**
+	 * Lista com todas as pessoas cadastradas
+	 * 
+	 * @return Lista de pessoas
+	 */
+	public static List<Pessoa> findAllPessoa() {
+		return find.all();
+	}
+
+	/**
+	 * Verifica se existem pessoas com o mesmo cpf
+	 * 
+	 * @param pessoa
+	 *            a ser verificada
+	 * @return true - existem pessoas com o mesmo cpf false - não existem
+	 *         pessoas com o mesmo cpf
+	 */
+	public static boolean validarCpfIgual(Pessoa pessoa) {
+
+		if (Pessoa.findByCPF(pessoa.getCpf()) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Cadastrar pessoas
+	 * 
+	 * @param pessoa
+	 *            Pessoa a ser cadastrada
+	 */
+	public void cadastrarPessoaModel(Pessoa pessoa) {
+		try {
+			if (!Pessoa.validarCpfIgual(pessoa)) {
+				pessoa.save();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Edita Pessoa
+	 * 
+	 * @param pessoa
+	 *            Pessoa a ser editada
+	 */
+	public void editarPessoaModel(Pessoa pessoa) {
+		try {
+			if (Pessoa.validarCpfIgual(pessoa))
+				pessoa.update();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Deleta Pessoa
+	 * 
+	 * @param cpf
+	 *            cpf da pessoa a ser deletada
+	 */
+	public void deletarModel(Long cpf) {
+		try {
+			Pessoa pessoa = Pessoa.findByCPF(cpf);
+			if (pessoa != null) {
+				pessoa.delete();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

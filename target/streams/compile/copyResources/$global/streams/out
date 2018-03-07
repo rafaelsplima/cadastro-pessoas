@@ -1,0 +1,8 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/rafael/Documentos/cadastro-pessoas/conf/cadastropessoas.properties,/home/rafael/Documentos/cadastro-pessoas/target/scala-2.11/classes/cadastropessoas.properties)[0m
+[0m[[0mdebug[0m] [0m	(/home/rafael/Documentos/cadastro-pessoas/conf/evolutions,/home/rafael/Documentos/cadastro-pessoas/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/rafael/Documentos/cadastro-pessoas/conf/routes,/home/rafael/Documentos/cadastro-pessoas/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/rafael/Documentos/cadastro-pessoas/conf/application.conf,/home/rafael/Documentos/cadastro-pessoas/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/rafael/Documentos/cadastro-pessoas/conf/logback.xml,/home/rafael/Documentos/cadastro-pessoas/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/rafael/Documentos/cadastro-pessoas/conf/evolutions/default,/home/rafael/Documentos/cadastro-pessoas/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/rafael/Documentos/cadastro-pessoas/conf/evolutions/default/1.sql,/home/rafael/Documentos/cadastro-pessoas/target/scala-2.11/classes/evolutions/default/1.sql)[0m

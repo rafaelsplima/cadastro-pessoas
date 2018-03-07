@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html data-ng-app="moduleIndex" data-ng-controller="indexController">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href='/assets/images/favicon.ico'>
+<title>Cadasro Pessoas</title>
+
+</head>
+
+<body>
+	<div id="pessoa" class="container-fluid">
+		<div id="pessoa" class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-primary panel-container"
+						style="margin-top: 20px">
+						 <div class="panel-heading title-index "> Cadastro de Pessoas </div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4">
+									<button type="button" class="btn btn-primary"
+										title="Cadastrar Pessoa" ng-click="abrirModalAddPessoa()"
+										style="float: left; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;">
+										Cadastrar Pessoa</button>
+								</div>
+								<div class="col-md-4 col-md-offset-4"">
+									<div class="input-group">
+										<span class="input-group-addon" id="search"><i class="fa fa-search"></i></span>
+								  		<input ng-model="searchBox" type="text" class="form-control" placeholder="Buscar por ..." aria-describedby="search">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<table class="table table-bordered">
+										<tr>
+											<th class="head-table">CPF</th>
+											<th class ="head-table">Nome</th>
+											<th class ="head-table">Nascimento</th>
+											<th class ="head-table">Peso</th>
+											<th class="head-table">UF</th>
+											<th class ="head-table">Ações</th>
+										</tr>
+										<tr ng-repeat="pessoa in pessoaList | filter:searchBox">
+											<td>{{pessoa.cpf}}</td>
+											<td>{{pessoa.nome}}</td>
+											<td>{{pessoa.dataNascimento}}</td>
+											<td>{{pessoa.peso}}Kg</td>
+											<td>{{pessoa.uf}}</td>
+											<td>
+												<i ng-click="abrirModalEditarPessoa(pessoa)" class="fa fa-pencil color-edit"></i>	
+												<i ng-click="abrirModalDelatarPessoa(pessoa.cpf)" class="fa fa-trash-o color-delete"></i>
+											</td>
+										</tr>
+
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section>
+		<div directive-alerta-sistema>
+	</section>
+	<section>
+		<div directive-adicionar-pessoa>
+	</section>
+	<section>
+		<div directive-editar-pessoa>
+	</section>
+	<section>
+		<div directive-deletar-pessoa>
+	</section>
+</body>
+</html>
