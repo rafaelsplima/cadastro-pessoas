@@ -73,7 +73,7 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 		<footer>
 			<div class="row">
 				<div class="col-md-12">
-					<hr />
+					<hr class = "line-rodape" />
 					<div class ="col-md-6">
 						<h6 style="text-align: center; color: #000;">
 							Desenvolvido por: <b> Rafael Silvestrini Lima </b>- 2018
@@ -81,7 +81,7 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 					</div>
 					<div class = "col-md-3"></div>
 					<div class = "col-md-3">
-						<h6> GT4W </h6>
+						<h6> <b> GT4W </b> </h6>
 					</div>
 				</div>
 			</div>
@@ -136,9 +136,9 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 07 18:33:19 BRT 2018
+                  DATE: Thu Mar 08 00:28:18 BRT 2018
                   SOURCE: /home/rafael/Documentos/cadastro-pessoas/app/views/template.scala.html
-                  HASH: cc05d53c3ef616911d19b201f6170c58e0d9c12e
+                  HASH: e2f3702e0fefc77a612d3d491c52cdcf21f7bec0
                   MATRIX: 801->0|1319->491|1334->497|1403->544|1464->578|1479->584|1554->638|1616->672|1645->673|1678->679|1894->868|1922->869|1951->871
                   LINES: 29->1|42->14|42->14|42->14|43->15|43->15|43->15|47->19|47->19|48->20|56->28|56->28|57->29
                   -- GENERATED --

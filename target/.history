@@ -241,3 +241,5 @@ clean
 compiler
 compile
 run
+compile
+run

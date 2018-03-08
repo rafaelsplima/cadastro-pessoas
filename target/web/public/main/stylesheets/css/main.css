@@ -13670,3 +13670,7 @@ a.fc-more:hover {
 .title-index {
 	text-align: center;
 }
+
+.line-rodape {
+	border-top: 4px solid #4682B4 !important;
+}
