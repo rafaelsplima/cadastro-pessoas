@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import entitys.response.AbstractResponse;
+import play.Logger;
 import play.db.ebean.Model;
 
 @Entity
@@ -28,11 +29,11 @@ public class Pessoa extends Model {
 
 	private String nome;
 
-	private String dataNascimento;
+	private String dataNascimento = "n/d";
 
-	private BigDecimal peso;
+	private BigDecimal peso = BigDecimal.ZERO;
 
-	private String uf;
+	private String uf = "n/d";
 
 	/**
 	 * Get/Set
@@ -86,7 +87,7 @@ public class Pessoa extends Model {
 	 * @return Pessoa
 	 */
 
-	public static Pessoa findByCPF(Long cpf) {
+	public Pessoa findByCPF(Long cpf) {
 		return find.where().eq("cpf", cpf).findUnique();
 	}
 
@@ -107,9 +108,39 @@ public class Pessoa extends Model {
 	 * @return true - existem pessoas com o mesmo cpf false - não existem
 	 *         pessoas com o mesmo cpf
 	 */
-	public static boolean validarCpfIgual(Pessoa pessoa) {
+	public  boolean validarCpfIgual(Pessoa pessoa) {
 
-		if (Pessoa.findByCPF(pessoa.getCpf()) != null) {
+		if (pessoa.findByCPF(pessoa.getCpf()) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param peso
+	 * @return
+	 */
+	public boolean validarPeso (BigDecimal peso) {
+		int p = peso.compareTo(BigDecimal.ZERO);
+		
+		if (p > 0|| p == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param ano
+	 * @param mes
+	 * @param dia
+	 * @return
+	 */
+	public boolean validarAno (int ano, int mes, int dia) {
+		if (ano > 0 &&  mes >  0 && dia > 0) {
 			return true;
 		} else {
 			return false;
@@ -124,7 +155,7 @@ public class Pessoa extends Model {
 	 */
 	public void cadastrarPessoaModel(Pessoa pessoa) {
 		try {
-			if (!Pessoa.validarCpfIgual(pessoa)) {
+			if (!this.validarCpfIgual(pessoa)) {
 				pessoa.save();
 			}
 		} catch (Exception e) {
@@ -140,7 +171,7 @@ public class Pessoa extends Model {
 	 */
 	public void editarPessoaModel(Pessoa pessoa) {
 		try {
-			if (Pessoa.validarCpfIgual(pessoa))
+			if (this.validarCpfIgual(pessoa))
 				pessoa.update();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,7 +186,7 @@ public class Pessoa extends Model {
 	 */
 	public void deletarModel(Long cpf) {
 		try {
-			Pessoa pessoa = Pessoa.findByCPF(cpf);
+			Pessoa pessoa = this.findByCPF(cpf);
 			if (pessoa != null) {
 				pessoa.delete();
 			}

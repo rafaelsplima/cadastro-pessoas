@@ -14,6 +14,28 @@
 	<link rel="stylesheet" media="screen" href='@routes.Assets.at("/stylesheets/vendor/bootstrap.css")'>
 	<link rel="stylesheet" href='@routes.Assets.at("/stylesheets/vendor/font-awesome.min.css")'>
 	
+	<script>
+	function validar(field) {
+		  str = field.value;
+		  if (str.length > 11) {
+		    field.value = str.substring(0, str.length - 1);
+		  }
+		}
+
+		function numerico(evt) {
+		  var key_code = evt.keyCode ? evt.keyCode : evt.charCode ? evt.charCode : evt.which ? evt.which : void 0;
+		  if (key_code == 8 || key_code == 9 || key_code == 13 || key_code == 27 || key_code == 46) {
+		    return true;
+		  } else if ((key_code >= 35) && (key_code <= 40)) {
+		    return true
+		  } else if ((key_code >= 48) && (key_code <= 57)) {
+		    return true
+		  }
+		  return false;
+		}
+
+	</script>
+	
 	
 	<style>
 	.template-alerta {
@@ -67,7 +89,7 @@
 	<script src="/assets/javascripts/vendor/angular-translate.js"></script>
 	<script src="assets/javascripts/vendor/angular-md5.js"></script>
 	<script src="/assets/javascripts/vendor/i18n/angular-locale_pt-br.js"></script>
-
+	
 	<!-- jquery -->
 	<script src="assets/javascripts/vendor/jquery-1.11.3.min.js"></script>
 

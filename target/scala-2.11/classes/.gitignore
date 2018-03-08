@@ -1,2 +1,5 @@
-/views/
 /controllers/
+/models/
+/entitys/
+/request/
+/views/

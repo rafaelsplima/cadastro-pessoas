@@ -114,21 +114,34 @@ var modalControlerAdicionarPessoa = function ($scope, $modalInstance, $http, $ti
 	
 	var objPessoa = {};
 	$scope.adicionarPessoa = function(){
-		cpf = $scope.cpf;
-		nome = $scope.nome;
-		dia = $scope.dia;
-		mes = $scope.mes;
-		ano = $scope.ano;
-		peso = $scope.peso;
-		uf = $scope.uf.id;
+		let cpf = $scope.cpf;
+		let nome = $scope.nome;
+		let dia = $scope.dia;
+		let mes = $scope.mes;
+		let ano = $scope.ano;
+		let uf;
+		let peso;
+		
+		if ($scope.peso != undefined) {
+			peso = $scope.peso;
+			objPessoa.peso = peso;
+		} else {
+			objPessoa.peso = 0;
+		}
+		
+		if ($scope.uf != undefined) {
+			uf = $scope.uf.id;
+			objPessoa.uf = uf;
+		} else {
+			objPessoa.uf = '';
+		}
 		
 		objPessoa.cpf = cpf;
 		objPessoa.nome = nome;
 		objPessoa.dia = dia;
 		objPessoa.mes = mes;
 		objPessoa.ano = ano;
-		objPessoa.peso = peso;
-		objPessoa.uf = uf;
+		
 		
 		$http.post('/pessoaController/cadastrarPessoa',
 				objPessoa).then(function(response) {

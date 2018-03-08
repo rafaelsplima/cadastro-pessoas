@@ -42,10 +42,32 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 	<link rel="stylesheet" media="screen" href='"""),_display_(/*14.47*/routes/*14.53*/.Assets.at("/stylesheets/vendor/bootstrap.css")),format.raw/*14.100*/("""'>
 	<link rel="stylesheet" href='"""),_display_(/*15.32*/routes/*15.38*/.Assets.at("/stylesheets/vendor/font-awesome.min.css")),format.raw/*15.92*/("""'>
 	
+	<script>
+	function validar(field) """),format.raw/*18.26*/("""{"""),format.raw/*18.27*/("""
+		  """),format.raw/*19.5*/("""str = field.value;
+		  if (str.length > 11) """),format.raw/*20.26*/("""{"""),format.raw/*20.27*/("""
+		    """),format.raw/*21.7*/("""field.value = str.substring(0, str.length - 1);
+		  """),format.raw/*22.5*/("""}"""),format.raw/*22.6*/("""
+		"""),format.raw/*23.3*/("""}"""),format.raw/*23.4*/("""
+
+		"""),format.raw/*25.3*/("""function numerico(evt) """),format.raw/*25.26*/("""{"""),format.raw/*25.27*/("""
+		  """),format.raw/*26.5*/("""var key_code = evt.keyCode ? evt.keyCode : evt.charCode ? evt.charCode : evt.which ? evt.which : void 0;
+		  if (key_code == 8 || key_code == 9 || key_code == 13 || key_code == 27 || key_code == 46) """),format.raw/*27.95*/("""{"""),format.raw/*27.96*/("""
+		    """),format.raw/*28.7*/("""return true;
+		  """),format.raw/*29.5*/("""}"""),format.raw/*29.6*/(""" """),format.raw/*29.7*/("""else if ((key_code >= 35) && (key_code <= 40)) """),format.raw/*29.54*/("""{"""),format.raw/*29.55*/("""
+		    """),format.raw/*30.7*/("""return true
+		  """),format.raw/*31.5*/("""}"""),format.raw/*31.6*/(""" """),format.raw/*31.7*/("""else if ((key_code >= 48) && (key_code <= 57)) """),format.raw/*31.54*/("""{"""),format.raw/*31.55*/("""
+		    """),format.raw/*32.7*/("""return true
+		  """),format.raw/*33.5*/("""}"""),format.raw/*33.6*/("""
+		  """),format.raw/*34.5*/("""return false;
+		"""),format.raw/*35.3*/("""}"""),format.raw/*35.4*/("""
+
+	"""),format.raw/*37.2*/("""</script>
+	
 	
 	<style>
-	.template-alerta """),format.raw/*19.19*/("""{"""),format.raw/*19.20*/("""
-	    """),format.raw/*20.6*/("""position: fixed;
+	.template-alerta """),format.raw/*41.19*/("""{"""),format.raw/*41.20*/("""
+	    """),format.raw/*42.6*/("""position: fixed;
 	    z-index: 9999999;
 	    padding: 20px;
 	    border-radius: 5px 5px 5px 5px;
@@ -53,8 +75,8 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 	    width: 60%;
 	    text-align: center;
 	    margin-left: 20%;
-	"""),format.raw/*28.2*/("""}"""),format.raw/*28.3*/("""
-	"""),format.raw/*29.2*/("""</style>
+	"""),format.raw/*50.2*/("""}"""),format.raw/*50.3*/("""
+	"""),format.raw/*51.2*/("""</style>
 
 </head>
 
@@ -95,7 +117,7 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 	<script src="/assets/javascripts/vendor/angular-translate.js"></script>
 	<script src="assets/javascripts/vendor/angular-md5.js"></script>
 	<script src="/assets/javascripts/vendor/i18n/angular-locale_pt-br.js"></script>
-
+	
 	<!-- jquery -->
 	<script src="assets/javascripts/vendor/jquery-1.11.3.min.js"></script>
 
@@ -136,11 +158,11 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 08 00:28:18 BRT 2018
+                  DATE: Thu Mar 08 16:23:58 BRT 2018
                   SOURCE: /home/rafael/Documentos/cadastro-pessoas/app/views/template.scala.html
-                  HASH: e2f3702e0fefc77a612d3d491c52cdcf21f7bec0
-                  MATRIX: 801->0|1319->491|1334->497|1403->544|1464->578|1479->584|1554->638|1616->672|1645->673|1678->679|1894->868|1922->869|1951->871
-                  LINES: 29->1|42->14|42->14|42->14|43->15|43->15|43->15|47->19|47->19|48->20|56->28|56->28|57->29
+                  HASH: ce6e623b136efc87a406fa37211cf5c72d696115
+                  MATRIX: 801->0|1319->491|1334->497|1403->544|1464->578|1479->584|1554->638|1622->678|1651->679|1683->684|1755->728|1784->729|1818->736|1897->788|1925->789|1955->792|1983->793|2014->797|2065->820|2094->821|2126->826|2353->1025|2382->1026|2416->1033|2460->1050|2488->1051|2516->1052|2591->1099|2620->1100|2654->1107|2697->1123|2725->1124|2753->1125|2828->1172|2857->1173|2891->1180|2934->1196|2962->1197|2994->1202|3037->1218|3065->1219|3095->1222|3164->1263|3193->1264|3226->1270|3442->1459|3470->1460|3499->1462
+                  LINES: 29->1|42->14|42->14|42->14|43->15|43->15|43->15|46->18|46->18|47->19|48->20|48->20|49->21|50->22|50->22|51->23|51->23|53->25|53->25|53->25|54->26|55->27|55->27|56->28|57->29|57->29|57->29|57->29|57->29|58->30|59->31|59->31|59->31|59->31|59->31|60->32|61->33|61->33|62->34|63->35|63->35|65->37|69->41|69->41|70->42|78->50|78->50|79->51
                   -- GENERATED --
               */
           
