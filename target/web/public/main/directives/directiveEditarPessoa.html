@@ -16,13 +16,13 @@
 
 					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-md-3" for="cpf">CPF*</label>
+						<label class="col-md-3" for="textCpf">CPF*</label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 							<input disabled id="textCpf" name="textCpf" type="number"
 								ng-model="pessoa.cpf" placeholder="Insira o Cpf"
 								class="form-control input-md" required />
 						</div>
-						<label class="col-md-3" for="nome">*Nome</label>
+						<label class="col-md-3" for="textNome">Nome*</label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 							<input id="textNome" name="textNome" type="text"
 								ng-model="pessoa.nome" placeholder="Insira o nome"
@@ -35,7 +35,7 @@
 							</div>
 						</div>
 
-						<label class="col-md-3" for="nome">Data nascimento:</label>
+						<label class="col-md-3" for="textDia">Data nascimento:</label>
 						<div style="margin-bottom: 10px;" class="col-md-3">
 							<input id="textDia" name="textDia" type="number"
 								ng-model="pessoa.dia" placeholder="dia"
@@ -56,7 +56,7 @@
 						</div>
 
 
-						<label class="col-md-3" for="nome">Peso:</label>
+						<label class="col-md-3" for="textPeso">Peso:</label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 							<input id="textPeso" name="textPeso" type="number"
 								ng-model="pessoa.peso" placeholder="peso"
@@ -67,8 +67,9 @@
 						<label class="col-md-3" for="textinputArea">UF</label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 
-							<select class="form-control select-md" ng-model="pessoa.uf">
-								<option value="" disabled>Selecione UF</option>
+							<select class="form-control select-md" ng-model="pessoa.uf" 
+								name="textinputArea" id="textinputArea" ng-model="pessoa.uf">
+								<option value="{{pessoa.uf}}">{{pessoa.uf}}</option>
 								<option ng-repeat="geoname in ufList.geonames"
 									value="{{geoname.name}}">{{geoname.name}}</option>
 							</select>

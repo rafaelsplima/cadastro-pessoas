@@ -49,7 +49,7 @@ public class PessoaController extends Controller {
 		AbstractResponse response = null;
 		Pessoa pessoa = new Pessoa();
 		pessoa = pessoa.findByCPF(Long.parseLong(request.getCpf()));
-
+		
 		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		Calendar data = Calendar.getInstance();
 		
