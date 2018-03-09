@@ -21,16 +21,7 @@
 							<input disabled id="textCpf" name="textCpf" type="number"
 								ng-model="pessoa.cpf" placeholder="Insira o Cpf"
 								class="form-control input-md" required />
-
-							<div class="text-left"
-								ng-show="adicionarPessoaForm.textCpf.$touched && 
-											adicionarPessoaForm.textCpf.$error.required">
-								<span class="fa fa-times campo-req"><b><i>Campo
-											Cpf Obrigatório.</i></b></span>
-							</div>
 						</div>
-
-
 						<label class="col-md-3" for="nome">*Nome</label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 							<input id="textNome" name="textNome" type="text"
@@ -38,14 +29,13 @@
 								class="form-control input-md" required />
 
 							<div class="text-left"
-								ng-show="adicionarPessoaForm.textNome.$touched && 
-											adicionarPessoaForm.textNome.$error.required">
-								<span class="fa fa-times campo-req"><b><i>Campo
-											Nome obrigatório.</i></b></span>
+								ng-show="editarPessoaForm.textNome.$touched && 
+											editarPessoaForm.textNome.$error.required">
+								<span class ="campo-requerid"> <b> Nome obrigatório </b> </span>
 							</div>
 						</div>
 
-						<label class="col-md-3" for="nome">Nascimento:</label>
+						<label class="col-md-3" for="nome">Data nascimento:</label>
 						<div style="margin-bottom: 10px;" class="col-md-3">
 							<input id="textDia" name="textDia" type="number"
 								ng-model="pessoa.dia" placeholder="dia"

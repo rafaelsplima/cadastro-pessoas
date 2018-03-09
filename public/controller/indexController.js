@@ -156,18 +156,26 @@ var modalControlerAdicionarPessoa = function ($scope, $modalInstance, $http, $ti
 
 var modalControlerEditarPessoa = function ($scope, $modalInstance, $http, $timeout, $sce, pessoaParametro) {
 	$scope.ufList = [];
-	$http.get('http://www.geonames.org/childrenJSON?geonameId=3469034')
-	.success(function(responseData) {
-		$scope.ufList = responseData;
-	});
-	
 	$scope.pessoa = {};
+	
 	$http.get('http://www.geonames.org/childrenJSON?geonameId=3469034')
 	.success(function(responseData) {
 		$scope.ufList = responseData;
 	});
 	$scope.pessoa = pessoaParametro;
+	
+	if ($scope.pessoa.peso == undefined) {
+		$scope.pessoa.peso = 0;
+	}
+	
+	if ($scope.pessoa.uf == undefined) {
+		$scope.pessoa.uf = '';
+	}
+	
 	$scope.editarPessoa = function() {
+		if ($scope.pessoa.peso == undefined) {
+			$scope.pessoa.peso = 0;
+		}
 		uf = $scope.pessoa.uf;
 		pessoa.uf = uf;
 		$http.post('/pessoaController/editarPessoa', $scope.pessoa).then(function(response) {

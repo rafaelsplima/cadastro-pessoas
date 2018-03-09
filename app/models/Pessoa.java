@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.jfree.util.Log;
+
 import entitys.response.AbstractResponse;
 import play.Logger;
 import play.db.ebean.Model;
@@ -118,9 +120,10 @@ public class Pessoa extends Model {
 	}
 	
 	/**
-	 * 
+	 * Verifica se ah unidade peso está válida
 	 * @param peso
-	 * @return
+	 * @return true - se válida
+	 *         false - se inválida
 	 */
 	public boolean validarPeso (BigDecimal peso) {
 		int p = peso.compareTo(BigDecimal.ZERO);
@@ -133,18 +136,39 @@ public class Pessoa extends Model {
 	}
 	
 	/**
-	 * 
-	 * @param ano
+	 * Verifica se data nascimento está válida
+	 * @param ano 
 	 * @param mes
 	 * @param dia
-	 * @return
+	 * @return true se válida
+	 *         false se inválida
 	 */
-	public boolean validarAno (int ano, int mes, int dia) {
+	public boolean validarData (int ano, int mes, int dia) {
 		if (ano > 0 &&  mes >  0 && dia > 0) {
 			return true;
+			
 		} else {
-			return false;
+			if (ano < 0 || mes < 0 || dia < 0) {
+				return false;
+			}
 		}
+		
+		return true;
+	}
+	
+	/**
+	 * Verfica se Uf foi selecionada
+	 * @param uf
+	 * @return true se uf não foi selecioada
+	 *         false se uf foi selecionada
+	 */    
+	
+	public boolean validaUf(String uf) {
+		if(uf.isEmpty()) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	/**

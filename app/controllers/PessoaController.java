@@ -53,12 +53,33 @@ public class PessoaController extends Controller {
 		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		Calendar data = Calendar.getInstance();
 		
+		if (pessoa.validarData(request.getAno(),(request.getMes()),request.getDia())) {
+			if (request.getAno() > 0 && (request.getMes()) > 0 && request.getDia() > 0) {
+				data.set(request.getAno(),(request.getMes()-1),request.getDia());
+				pessoa.setDataNascimento(df.format(data.getTime()));
+			}
+		} else {
+			response = new AbstractResponse(AbstractResponse.IconEnum.WARNING_SIGN.getDesc(),
+					AbstractResponse.TypeEnum.WARNING.getDescricao(), "Verifique o campo Data de Nascimento");
+			return ok(Json.toJson(response));
+		}
+		
+	
+		if (pessoa.validarPeso(request.getPeso())) {
+			pessoa.setPeso(request.getPeso());
+		} else {
+			response = new AbstractResponse(AbstractResponse.IconEnum.WARNING_SIGN.getDesc(),
+					AbstractResponse.TypeEnum.WARNING.getDescricao(), "Verifique o campo Peso");
+			return ok(Json.toJson(response));
+		}
+		
+		if (!pessoa.validaUf(request.getUf())) {
+			pessoa.setUf(request.getUf());
+		}		
+		
+		
 		if (pessoa.validarCpfIgual(pessoa)) {
 			pessoa.setNome(request.getNome());
-			data.set(request.getAno(),(request.getMes()-1),request.getDia());
-			pessoa.setDataNascimento(df.format(data.getTime()));
-			pessoa.setPeso(request.getPeso());
-			pessoa.setUf(request.getUf());
 			pessoa.editarPessoaModel(pessoa);
 			response = new AbstractResponse(AbstractResponse.IconEnum.THUMBS_UP.getDesc(),
 					AbstractResponse.TypeEnum.SUCCESS.getDescricao(), "Pessoa editada com sucesso!");
@@ -87,14 +108,14 @@ public class PessoaController extends Controller {
 		pessoa.setCpf(Long.parseLong(request.getCpf()));
 		pessoa.setNome(request.getNome());
 	
-		if (pessoa.validarAno(request.getAno(),(request.getMes()-1),request.getDia())) {
-			if (request.getAno() > 0 && (request.getMes()-1) > 0 && request.getDia() > 0) {
+		if (pessoa.validarData(request.getAno(),(request.getMes()),request.getDia())) {
+			if (request.getAno() > 0 && (request.getMes()) > 0 && request.getDia() > 0) {
 				data.set(request.getAno(),(request.getMes()-1),request.getDia());
 				pessoa.setDataNascimento(df.format(data.getTime()));
 			}
 		} else {
 			response = new AbstractResponse(AbstractResponse.IconEnum.WARNING_SIGN.getDesc(),
-					AbstractResponse.TypeEnum.WARNING.getDescricao(), "Verifique o campo Ano");
+					AbstractResponse.TypeEnum.WARNING.getDescricao(), "Verifique o campo Data de Nascimento");
 			return ok(Json.toJson(response));
 		}
 		
@@ -107,13 +128,10 @@ public class PessoaController extends Controller {
 			return ok(Json.toJson(response));
 		}
 		
-	
-		if (!request.getUf().isEmpty()) {
+		if (!pessoa.validaUf(request.getUf())) {
 			pessoa.setUf(request.getUf());
 		}		
-		
-		
-
+			
 		// Condição para retornar mensagem para Toast pela classe
 		// AbstractResponse
 		if (!pessoa.validarCpfIgual(pessoa)) {
