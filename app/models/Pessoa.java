@@ -98,7 +98,7 @@ public class Pessoa extends Model {
 	 * 
 	 * @return Lista de pessoas
 	 */
-	public static List<Pessoa> findAllPessoa() {
+	public List<Pessoa> findAllPessoa() {
 		return find.all();
 	}
 

@@ -34,8 +34,8 @@ moduleIndexVar.controller('indexController', ['$rootScope', '$scope', '$http', '
 	
 	$scope.abrirModalAddPessoa = function() {
 		var modalInstance = $modal.open({
-            templateUrl: 'idModalAdicionarPessoa',
-            controller: modalControlerAdicionarPessoa,
+            templateUrl: 'adicionarPessoaModal',
+            controller: controlerAdicionarPessoa,
             size: 'md',
         });
 		
@@ -55,8 +55,8 @@ moduleIndexVar.controller('indexController', ['$rootScope', '$scope', '$http', '
 	
 	$scope.abrirModalEditarPessoa = function(pessoa) {
 		var modalInstance = $modal.open({
-            templateUrl: 'idModalEditarPessoa',
-            controller: modalControlerEditarPessoa,
+            templateUrl: 'editaPessoaModal',
+            controller: controlerEditarPessoa,
             size: 'md',
             resolve: {
 	        	pessoaParametro: function () {
@@ -80,8 +80,8 @@ moduleIndexVar.controller('indexController', ['$rootScope', '$scope', '$http', '
 	
 	$scope.abrirModalDelatarPessoa = function(cpf) {
 		var modalInstance = $modal.open({
-            templateUrl: 'idAlertaDeletarPessoa',
-            controller: modalControlerDeletarPessoa,
+            templateUrl: 'deletarPessoaModal',
+            controller: controlerDeletarPessoa,
             size: 'md',
             resolve: {
                 cpfParametro: function () {
@@ -105,14 +105,14 @@ moduleIndexVar.controller('indexController', ['$rootScope', '$scope', '$http', '
 
 
 
-var modalControlerAdicionarPessoa = function ($scope, $modalInstance, $http, $timeout, $sce) {
+let controlerAdicionarPessoa = function ($scope, $modalInstance, $http, $timeout, $sce) {
+	var objPessoa = {};
 	$scope.ufList = [];
 	$http.get('http://www.geonames.org/childrenJSON?geonameId=3469034')
 	.success(function(responseData) {
 		$scope.ufList = responseData;
 	});
 	
-	var objPessoa = {};
 	$scope.adicionarPessoa = function(){
 		let cpf = $scope.cpf;
 		let nome = $scope.nome;
@@ -154,7 +154,7 @@ var modalControlerAdicionarPessoa = function ($scope, $modalInstance, $http, $ti
 };
 
 
-var modalControlerEditarPessoa = function ($scope, $modalInstance, $http, $timeout, $sce, pessoaParametro) {
+let controlerEditarPessoa = function ($scope, $modalInstance, $http, $timeout, $sce, pessoaParametro) {
 	$scope.ufList = [];
 	$scope.pessoa = {};
 	$scope.parseInt = parseInt;
@@ -182,8 +182,6 @@ var modalControlerEditarPessoa = function ($scope, $modalInstance, $http, $timeo
 		if ($scope.pessoa.peso == undefined) {
 			$scope.pessoa.peso = 0;
 		}
-		
-		console.log($scope.pessoa.ano);
 		uf = $scope.pessoa.uf;
 		pessoa.uf = uf;
 		$http.post('/pessoaController/editarPessoa', $scope.pessoa).then(function(response) {
@@ -196,7 +194,7 @@ var modalControlerEditarPessoa = function ($scope, $modalInstance, $http, $timeo
 	};
 };
 
-var modalControlerDeletarPessoa = function ($scope, $modalInstance, $http, $timeout, $sce, cpfParametro) {
+let controlerDeletarPessoa = function ($scope, $modalInstance, $http, $timeout, $sce, cpfParametro) {
 	$scope.deletarPessoa = function(){
 		$http.get('/pessoaController/deletarPessoa/'+cpfParametro).then(function(response) {
 				$modalInstance.close(response);

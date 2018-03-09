@@ -33,7 +33,8 @@ public class PessoaController extends Controller {
 	 * @return
 	 */
 	public static Result findAllPessoas() {
-		return ok(Json.toJson(Pessoa.findAllPessoa()));
+		Pessoa lstPessoa = new Pessoa();
+		return ok(Json.toJson(lstPessoa.findAllPessoa()));
 	}
 
 	/**

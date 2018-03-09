@@ -1,6 +1,6 @@
 // @SOURCE:/home/rafael/Documentos/cadastro-pessoas/conf/routes
-// @HASH:8e37d660d9a87430bcbc7d056822766f17391823
-// @DATE:Fri Mar 09 14:57:10 BRT 2018
+// @HASH:5bcc6d0f015d7f8ddadbc5af3f0ca5ac0318afdd
+// @DATE:Fri Mar 09 16:15:09 BRT 2018
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,30 +15,30 @@ import _root_.play.libs.F
 import Router.queryString
 
 
-// @LINE:18
-// @LINE:17
 // @LINE:16
 // @LINE:15
-// @LINE:12
-// @LINE:11
+// @LINE:14
+// @LINE:13
 // @LINE:10
-// @LINE:7
-// @LINE:6
+// @LINE:9
+// @LINE:8
+// @LINE:5
+// @LINE:4
 package controllers {
 
-// @LINE:7
-// @LINE:6
+// @LINE:5
+// @LINE:4
 class ReverseAssets {
 
 
-// @LINE:7
+// @LINE:5
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
                         
 
-// @LINE:6
+// @LINE:4
 def versioned(file:Asset): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[Asset]].unbind("file", file))
@@ -48,50 +48,50 @@ def versioned(file:Asset): Call = {
 }
                           
 
-// @LINE:18
-// @LINE:17
 // @LINE:16
 // @LINE:15
-// @LINE:12
-// @LINE:11
+// @LINE:14
+// @LINE:13
 // @LINE:10
+// @LINE:9
+// @LINE:8
 class ReversePessoaController {
 
 
-// @LINE:16
+// @LINE:14
 def cadastrarPessoa(): Call = {
    import ReverseRouteContext.empty
    Call("POST", _prefix + { _defaultPrefix } + "pessoaController/cadastrarPessoa")
 }
                         
 
-// @LINE:15
+// @LINE:13
 def findAllPessoas(): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "pessoaController/findAllPessoas")
 }
                         
 
-// @LINE:18
+// @LINE:16
 def editarPessoa(): Call = {
    import ReverseRouteContext.empty
    Call("POST", _prefix + { _defaultPrefix } + "pessoaController/editarPessoa")
 }
                         
 
-// @LINE:17
+// @LINE:15
 def deletarPessoa(cpf:Long): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "pessoaController/deletarPessoa/" + implicitly[PathBindable[Long]].unbind("cpf", cpf))
 }
                         
 
-// @LINE:12
-// @LINE:11
 // @LINE:10
+// @LINE:9
+// @LINE:8
 def index(): Call = {
    () match {
-// @LINE:10
+// @LINE:8
 case ()  =>
   import ReverseRouteContext.empty
   Call("GET", _prefix)
@@ -106,24 +106,24 @@ case ()  =>
                   
 
 
-// @LINE:18
-// @LINE:17
 // @LINE:16
 // @LINE:15
-// @LINE:12
-// @LINE:11
+// @LINE:14
+// @LINE:13
 // @LINE:10
-// @LINE:7
-// @LINE:6
+// @LINE:9
+// @LINE:8
+// @LINE:5
+// @LINE:4
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:7
-// @LINE:6
+// @LINE:5
+// @LINE:4
 class ReverseAssets {
 
 
-// @LINE:7
+// @LINE:5
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -134,7 +134,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:6
+// @LINE:4
 def versioned : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.versioned",
    """
@@ -148,17 +148,17 @@ def versioned : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:18
-// @LINE:17
 // @LINE:16
 // @LINE:15
-// @LINE:12
-// @LINE:11
+// @LINE:14
+// @LINE:13
 // @LINE:10
+// @LINE:9
+// @LINE:8
 class ReversePessoaController {
 
 
-// @LINE:16
+// @LINE:14
 def cadastrarPessoa : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PessoaController.cadastrarPessoa",
    """
@@ -169,7 +169,7 @@ def cadastrarPessoa : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:15
+// @LINE:13
 def findAllPessoas : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PessoaController.findAllPessoas",
    """
@@ -180,7 +180,7 @@ def findAllPessoas : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:18
+// @LINE:16
 def editarPessoa : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PessoaController.editarPessoa",
    """
@@ -191,7 +191,7 @@ def editarPessoa : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:17
+// @LINE:15
 def deletarPessoa : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PessoaController.deletarPessoa",
    """
@@ -202,9 +202,9 @@ def deletarPessoa : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:12
-// @LINE:11
 // @LINE:10
+// @LINE:9
+// @LINE:8
 def index : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PessoaController.index",
    """
@@ -229,75 +229,75 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:18
-// @LINE:17
 // @LINE:16
 // @LINE:15
-// @LINE:12
-// @LINE:11
+// @LINE:14
+// @LINE:13
 // @LINE:10
-// @LINE:7
-// @LINE:6
+// @LINE:9
+// @LINE:8
+// @LINE:5
+// @LINE:4
 package controllers.ref {
 
 
-// @LINE:7
-// @LINE:6
+// @LINE:5
+// @LINE:4
 class ReverseAssets {
 
 
-// @LINE:7
+// @LINE:5
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """assets/$file<.+>""")
 )
                       
 
-// @LINE:6
+// @LINE:4
 def versioned(path:String, file:Asset): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Assets.versioned(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "versioned", Seq(classOf[String], classOf[Asset]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
+   controllers.Assets.versioned(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "versioned", Seq(classOf[String], classOf[Asset]), "GET", """""", _prefix + """assets/$file<.+>""")
 )
                       
 
 }
                           
 
-// @LINE:18
-// @LINE:17
 // @LINE:16
 // @LINE:15
-// @LINE:12
-// @LINE:11
+// @LINE:14
+// @LINE:13
 // @LINE:10
+// @LINE:9
+// @LINE:8
 class ReversePessoaController {
 
 
-// @LINE:16
+// @LINE:14
 def cadastrarPessoa(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.PessoaController.cadastrarPessoa(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "cadastrarPessoa", Seq(), "POST", """""", _prefix + """pessoaController/cadastrarPessoa""")
 )
                       
 
-// @LINE:15
+// @LINE:13
 def findAllPessoas(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.PessoaController.findAllPessoas(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "findAllPessoas", Seq(), "GET", """Pessoas""", _prefix + """pessoaController/findAllPessoas""")
 )
                       
 
-// @LINE:18
+// @LINE:16
 def editarPessoa(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.PessoaController.editarPessoa(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "editarPessoa", Seq(), "POST", """""", _prefix + """pessoaController/editarPessoa""")
 )
                       
 
-// @LINE:17
+// @LINE:15
 def deletarPessoa(cpf:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.PessoaController.deletarPessoa(cpf), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "deletarPessoa", Seq(classOf[Long]), "GET", """""", _prefix + """pessoaController/deletarPessoa/$cpf<[^/]+>""")
 )
                       
 
-// @LINE:10
+// @LINE:8
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.PessoaController.index(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "index", Seq(), "GET", """ Home page""", _prefix + """""")
+   controllers.PessoaController.index(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "index", Seq(), "GET", """ Pagina Incial""", _prefix + """""")
 )
                       
 

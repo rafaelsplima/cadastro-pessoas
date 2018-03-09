@@ -1,6 +1,6 @@
 // @SOURCE:/home/rafael/Documentos/cadastro-pessoas/conf/routes
-// @HASH:8e37d660d9a87430bcbc7d056822766f17391823
-// @DATE:Fri Mar 09 14:57:10 BRT 2018
+// @HASH:5bcc6d0f015d7f8ddadbc5af3f0ca5ac0318afdd
+// @DATE:Fri Mar 09 16:15:09 BRT 2018
 
 
 import play.core._
@@ -32,63 +32,63 @@ def prefix = _prefix
 lazy val defaultPrefix = { if(Routes.prefix.endsWith("/")) "" else "/" }
 
 
-// @LINE:6
+// @LINE:4
 private[this] lazy val controllers_Assets_versioned0_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
 private[this] lazy val controllers_Assets_versioned0_invoker = createInvoker(
 controllers.Assets.versioned(fakeValue[String], fakeValue[Asset]),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "versioned", Seq(classOf[String], classOf[Asset]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "versioned", Seq(classOf[String], classOf[Asset]),"GET", """""", Routes.prefix + """assets/$file<.+>"""))
         
 
-// @LINE:7
+// @LINE:5
 private[this] lazy val controllers_Assets_at1_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
 private[this] lazy val controllers_Assets_at1_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """assets/$file<.+>"""))
         
 
-// @LINE:10
+// @LINE:8
 private[this] lazy val controllers_PessoaController_index2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix))))
 private[this] lazy val controllers_PessoaController_index2_invoker = createInvoker(
 controllers.PessoaController.index(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "index", Nil,"GET", """ Home page""", Routes.prefix + """"""))
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "index", Nil,"GET", """ Pagina Incial""", Routes.prefix + """"""))
         
 
-// @LINE:11
+// @LINE:9
 private[this] lazy val controllers_PessoaController_index3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("cadastropessoas"))))
 private[this] lazy val controllers_PessoaController_index3_invoker = createInvoker(
 controllers.PessoaController.index(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "index", Nil,"GET", """""", Routes.prefix + """cadastropessoas"""))
         
 
-// @LINE:12
+// @LINE:10
 private[this] lazy val controllers_PessoaController_index4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("cadastropessoas/"))))
 private[this] lazy val controllers_PessoaController_index4_invoker = createInvoker(
 controllers.PessoaController.index(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "index", Nil,"GET", """""", Routes.prefix + """cadastropessoas/"""))
         
 
-// @LINE:15
+// @LINE:13
 private[this] lazy val controllers_PessoaController_findAllPessoas5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pessoaController/findAllPessoas"))))
 private[this] lazy val controllers_PessoaController_findAllPessoas5_invoker = createInvoker(
 controllers.PessoaController.findAllPessoas(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "findAllPessoas", Nil,"GET", """Pessoas""", Routes.prefix + """pessoaController/findAllPessoas"""))
         
 
-// @LINE:16
+// @LINE:14
 private[this] lazy val controllers_PessoaController_cadastrarPessoa6_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pessoaController/cadastrarPessoa"))))
 private[this] lazy val controllers_PessoaController_cadastrarPessoa6_invoker = createInvoker(
 controllers.PessoaController.cadastrarPessoa(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "cadastrarPessoa", Nil,"POST", """""", Routes.prefix + """pessoaController/cadastrarPessoa"""))
         
 
-// @LINE:17
+// @LINE:15
 private[this] lazy val controllers_PessoaController_deletarPessoa7_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pessoaController/deletarPessoa/"),DynamicPart("cpf", """[^/]+""",true))))
 private[this] lazy val controllers_PessoaController_deletarPessoa7_invoker = createInvoker(
 controllers.PessoaController.deletarPessoa(fakeValue[Long]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "deletarPessoa", Seq(classOf[Long]),"GET", """""", Routes.prefix + """pessoaController/deletarPessoa/$cpf<[^/]+>"""))
         
 
-// @LINE:18
+// @LINE:16
 private[this] lazy val controllers_PessoaController_editarPessoa8_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pessoaController/editarPessoa"))))
 private[this] lazy val controllers_PessoaController_editarPessoa8_invoker = createInvoker(
 controllers.PessoaController.editarPessoa(),
@@ -102,7 +102,7 @@ def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else 
 
 def routes:PartialFunction[RequestHeader,Handler] = {
 
-// @LINE:6
+// @LINE:4
 case controllers_Assets_versioned0_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned0_invoker.call(controllers.Assets.versioned(path, file))
@@ -110,7 +110,7 @@ case controllers_Assets_versioned0_route(params) => {
 }
         
 
-// @LINE:7
+// @LINE:5
 case controllers_Assets_at1_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         controllers_Assets_at1_invoker.call(controllers.Assets.at(path, file))
@@ -118,7 +118,7 @@ case controllers_Assets_at1_route(params) => {
 }
         
 
-// @LINE:10
+// @LINE:8
 case controllers_PessoaController_index2_route(params) => {
    call { 
         controllers_PessoaController_index2_invoker.call(controllers.PessoaController.index())
@@ -126,7 +126,7 @@ case controllers_PessoaController_index2_route(params) => {
 }
         
 
-// @LINE:11
+// @LINE:9
 case controllers_PessoaController_index3_route(params) => {
    call { 
         controllers_PessoaController_index3_invoker.call(controllers.PessoaController.index())
@@ -134,7 +134,7 @@ case controllers_PessoaController_index3_route(params) => {
 }
         
 
-// @LINE:12
+// @LINE:10
 case controllers_PessoaController_index4_route(params) => {
    call { 
         controllers_PessoaController_index4_invoker.call(controllers.PessoaController.index())
@@ -142,7 +142,7 @@ case controllers_PessoaController_index4_route(params) => {
 }
         
 
-// @LINE:15
+// @LINE:13
 case controllers_PessoaController_findAllPessoas5_route(params) => {
    call { 
         controllers_PessoaController_findAllPessoas5_invoker.call(controllers.PessoaController.findAllPessoas())
@@ -150,7 +150,7 @@ case controllers_PessoaController_findAllPessoas5_route(params) => {
 }
         
 
-// @LINE:16
+// @LINE:14
 case controllers_PessoaController_cadastrarPessoa6_route(params) => {
    call { 
         controllers_PessoaController_cadastrarPessoa6_invoker.call(controllers.PessoaController.cadastrarPessoa())
@@ -158,7 +158,7 @@ case controllers_PessoaController_cadastrarPessoa6_route(params) => {
 }
         
 
-// @LINE:17
+// @LINE:15
 case controllers_PessoaController_deletarPessoa7_route(params) => {
    call(params.fromPath[Long]("cpf", None)) { (cpf) =>
         controllers_PessoaController_deletarPessoa7_invoker.call(controllers.PessoaController.deletarPessoa(cpf))
@@ -166,7 +166,7 @@ case controllers_PessoaController_deletarPessoa7_route(params) => {
 }
         
 
-// @LINE:18
+// @LINE:16
 case controllers_PessoaController_editarPessoa8_route(params) => {
    call { 
         controllers_PessoaController_editarPessoa8_invoker.call(controllers.PessoaController.editarPessoa())
