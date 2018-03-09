@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20180309161509"/>
+		date="20180309170634"/>
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-mailer_2.11">
 			<revision name="2.4.0" status="release" pubdate="20150108220747" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-mailer" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="87">
