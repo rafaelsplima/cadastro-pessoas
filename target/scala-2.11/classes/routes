@@ -1,0 +1,16 @@
+# Rotas
+# Arquivo que define as rotas
+
+GET     /assets/*file               															controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file               															controllers.Assets.at(path="/public", file)
+
+# Pagina Incial
+GET     /        		                    													controllers.PessoaController.index()
+GET     /cadastropessoas                      	    												controllers.PessoaController.index()
+GET     /cadastropessoas/	                        												controllers.PessoaController.index()
+
+#Pessoas
+GET	 /pessoaController/findAllPessoas														controllers.PessoaController.findAllPessoas()
+POST /pessoaController/cadastrarPessoa														controllers.PessoaController.cadastrarPessoa()
+GET	 /pessoaController/deletarPessoa/:cpf													controllers.PessoaController.deletarPessoa(cpf: Long)
+POST /pessoaController/editarPessoa															controllers.PessoaController.editarPessoa()

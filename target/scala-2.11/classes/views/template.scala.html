@@ -15,13 +15,17 @@
 	<link rel="stylesheet" href='@routes.Assets.at("/stylesheets/vendor/font-awesome.min.css")'>
 	
 	<script>
+	
+	/* Função que não permite o campo cpf exceder 11 caracteres */
 	function validar(field) {
 		  str = field.value;
 		  if (str.length > 11) {
 		    field.value = str.substring(0, str.length - 1);
 		  }
 		}
-
+	
+	
+		/* Função que só permite caracteres númericos no campo */
 		function numerico(evt) {
 		  var key_code = evt.keyCode ? evt.keyCode : evt.charCode ? evt.charCode : evt.which ? evt.which : void 0;
 		  if (key_code == 8 || key_code == 9 || key_code == 13 || key_code == 27 || key_code == 46) {

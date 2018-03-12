@@ -43,31 +43,35 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 	<link rel="stylesheet" href='"""),_display_(/*15.32*/routes/*15.38*/.Assets.at("/stylesheets/vendor/font-awesome.min.css")),format.raw/*15.92*/("""'>
 	
 	<script>
-	function validar(field) """),format.raw/*18.26*/("""{"""),format.raw/*18.27*/("""
-		  """),format.raw/*19.5*/("""str = field.value;
-		  if (str.length > 11) """),format.raw/*20.26*/("""{"""),format.raw/*20.27*/("""
-		    """),format.raw/*21.7*/("""field.value = str.substring(0, str.length - 1);
-		  """),format.raw/*22.5*/("""}"""),format.raw/*22.6*/("""
-		"""),format.raw/*23.3*/("""}"""),format.raw/*23.4*/("""
+	
+	/* Função que não permite o campo cpf exceder 11 caracteres */
+	function validar(field) """),format.raw/*20.26*/("""{"""),format.raw/*20.27*/("""
+		  """),format.raw/*21.5*/("""str = field.value;
+		  if (str.length > 11) """),format.raw/*22.26*/("""{"""),format.raw/*22.27*/("""
+		    """),format.raw/*23.7*/("""field.value = str.substring(0, str.length - 1);
+		  """),format.raw/*24.5*/("""}"""),format.raw/*24.6*/("""
+		"""),format.raw/*25.3*/("""}"""),format.raw/*25.4*/("""
+	
+	
+		"""),format.raw/*28.3*/("""/* Função que só permite caracteres númericos no campo */
+		function numerico(evt) """),format.raw/*29.26*/("""{"""),format.raw/*29.27*/("""
+		  """),format.raw/*30.5*/("""var key_code = evt.keyCode ? evt.keyCode : evt.charCode ? evt.charCode : evt.which ? evt.which : void 0;
+		  if (key_code == 8 || key_code == 9 || key_code == 13 || key_code == 27 || key_code == 46) """),format.raw/*31.95*/("""{"""),format.raw/*31.96*/("""
+		    """),format.raw/*32.7*/("""return true;
+		  """),format.raw/*33.5*/("""}"""),format.raw/*33.6*/(""" """),format.raw/*33.7*/("""else if ((key_code >= 35) && (key_code <= 40)) """),format.raw/*33.54*/("""{"""),format.raw/*33.55*/("""
+		    """),format.raw/*34.7*/("""return true
+		  """),format.raw/*35.5*/("""}"""),format.raw/*35.6*/(""" """),format.raw/*35.7*/("""else if ((key_code >= 48) && (key_code <= 57)) """),format.raw/*35.54*/("""{"""),format.raw/*35.55*/("""
+		    """),format.raw/*36.7*/("""return true
+		  """),format.raw/*37.5*/("""}"""),format.raw/*37.6*/("""
+		  """),format.raw/*38.5*/("""return false;
+		"""),format.raw/*39.3*/("""}"""),format.raw/*39.4*/("""
 
-		"""),format.raw/*25.3*/("""function numerico(evt) """),format.raw/*25.26*/("""{"""),format.raw/*25.27*/("""
-		  """),format.raw/*26.5*/("""var key_code = evt.keyCode ? evt.keyCode : evt.charCode ? evt.charCode : evt.which ? evt.which : void 0;
-		  if (key_code == 8 || key_code == 9 || key_code == 13 || key_code == 27 || key_code == 46) """),format.raw/*27.95*/("""{"""),format.raw/*27.96*/("""
-		    """),format.raw/*28.7*/("""return true;
-		  """),format.raw/*29.5*/("""}"""),format.raw/*29.6*/(""" """),format.raw/*29.7*/("""else if ((key_code >= 35) && (key_code <= 40)) """),format.raw/*29.54*/("""{"""),format.raw/*29.55*/("""
-		    """),format.raw/*30.7*/("""return true
-		  """),format.raw/*31.5*/("""}"""),format.raw/*31.6*/(""" """),format.raw/*31.7*/("""else if ((key_code >= 48) && (key_code <= 57)) """),format.raw/*31.54*/("""{"""),format.raw/*31.55*/("""
-		    """),format.raw/*32.7*/("""return true
-		  """),format.raw/*33.5*/("""}"""),format.raw/*33.6*/("""
-		  """),format.raw/*34.5*/("""return false;
-		"""),format.raw/*35.3*/("""}"""),format.raw/*35.4*/("""
-
-	"""),format.raw/*37.2*/("""</script>
+	"""),format.raw/*41.2*/("""</script>
 	
 	
 	<style>
-	.template-alerta """),format.raw/*41.19*/("""{"""),format.raw/*41.20*/("""
-	    """),format.raw/*42.6*/("""position: fixed;
+	.template-alerta """),format.raw/*45.19*/("""{"""),format.raw/*45.20*/("""
+	    """),format.raw/*46.6*/("""position: fixed;
 	    z-index: 9999999;
 	    padding: 20px;
 	    border-radius: 5px 5px 5px 5px;
@@ -75,8 +79,8 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 	    width: 60%;
 	    text-align: center;
 	    margin-left: 20%;
-	"""),format.raw/*50.2*/("""}"""),format.raw/*50.3*/("""
-	"""),format.raw/*51.2*/("""</style>
+	"""),format.raw/*54.2*/("""}"""),format.raw/*54.3*/("""
+	"""),format.raw/*55.2*/("""</style>
 
 </head>
 
@@ -158,11 +162,11 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 11 17:37:13 BRT 2018
+                  DATE: Mon Mar 12 10:55:02 BRT 2018
                   SOURCE: /home/rafael/Documentos/cadastro-pessoas/app/views/template.scala.html
-                  HASH: ce6e623b136efc87a406fa37211cf5c72d696115
-                  MATRIX: 801->0|1319->491|1334->497|1403->544|1464->578|1479->584|1554->638|1622->678|1651->679|1683->684|1755->728|1784->729|1818->736|1897->788|1925->789|1955->792|1983->793|2014->797|2065->820|2094->821|2126->826|2353->1025|2382->1026|2416->1033|2460->1050|2488->1051|2516->1052|2591->1099|2620->1100|2654->1107|2697->1123|2725->1124|2753->1125|2828->1172|2857->1173|2891->1180|2934->1196|2962->1197|2994->1202|3037->1218|3065->1219|3095->1222|3164->1263|3193->1264|3226->1270|3442->1459|3470->1460|3499->1462
-                  LINES: 29->1|42->14|42->14|42->14|43->15|43->15|43->15|46->18|46->18|47->19|48->20|48->20|49->21|50->22|50->22|51->23|51->23|53->25|53->25|53->25|54->26|55->27|55->27|56->28|57->29|57->29|57->29|57->29|57->29|58->30|59->31|59->31|59->31|59->31|59->31|60->32|61->33|61->33|62->34|63->35|63->35|65->37|69->41|69->41|70->42|78->50|78->50|79->51
+                  HASH: 54ad8a3925dd04e0fb3e968fcbb6f20815a33fad
+                  MATRIX: 801->0|1319->491|1334->497|1403->544|1464->578|1479->584|1554->638|1688->744|1717->745|1749->750|1821->794|1850->795|1884->802|1963->854|1991->855|2021->858|2049->859|2083->866|2194->949|2223->950|2255->955|2482->1154|2511->1155|2545->1162|2589->1179|2617->1180|2645->1181|2720->1228|2749->1229|2783->1236|2826->1252|2854->1253|2882->1254|2957->1301|2986->1302|3020->1309|3063->1325|3091->1326|3123->1331|3166->1347|3194->1348|3224->1351|3293->1392|3322->1393|3355->1399|3571->1588|3599->1589|3628->1591
+                  LINES: 29->1|42->14|42->14|42->14|43->15|43->15|43->15|48->20|48->20|49->21|50->22|50->22|51->23|52->24|52->24|53->25|53->25|56->28|57->29|57->29|58->30|59->31|59->31|60->32|61->33|61->33|61->33|61->33|61->33|62->34|63->35|63->35|63->35|63->35|63->35|64->36|65->37|65->37|66->38|67->39|67->39|69->41|73->45|73->45|74->46|82->54|82->54|83->55
                   -- GENERATED --
               */
           

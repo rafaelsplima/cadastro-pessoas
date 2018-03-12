@@ -1,6 +1,6 @@
 // @SOURCE:/home/rafael/Documentos/cadastro-pessoas/conf/routes
 // @HASH:5bcc6d0f015d7f8ddadbc5af3f0ca5ac0318afdd
-// @DATE:Sun Mar 11 17:37:12 BRT 2018
+// @DATE:Mon Mar 12 10:42:33 BRT 2018
 
 
 import play.core._
