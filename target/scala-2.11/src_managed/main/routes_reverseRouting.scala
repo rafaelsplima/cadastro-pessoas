@@ -1,6 +1,6 @@
 // @SOURCE:/home/rafael/Documentos/cadastro-pessoas/conf/routes
 // @HASH:5bcc6d0f015d7f8ddadbc5af3f0ca5ac0318afdd
-// @DATE:Fri Mar 09 17:06:35 BRT 2018
+// @DATE:Sun Mar 11 17:37:12 BRT 2018
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._

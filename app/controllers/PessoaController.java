@@ -19,7 +19,7 @@ import views.html.*;
 public class PessoaController extends Controller {
 
 	/**
-	 * Renderiza index a partir de um templlate
+	 * Renderiza index
 	 * 
 	 * @return
 	 */
@@ -50,10 +50,12 @@ public class PessoaController extends Controller {
 		AbstractResponse response = null;
 		Pessoa pessoa = new Pessoa();
 		pessoa = pessoa.findByCPF(Long.parseLong(request.getCpf()));
+		Double peso;
 		
 		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		Calendar data = Calendar.getInstance();
 		
+		/** Verifica entrada de dados erradas de peso e data  */
 		if (pessoa.validarData(request.getAno(),(request.getMes()),request.getDia())) {
 			if (request.getAno() > 0 && (request.getMes()) > 0 && request.getDia() > 0) {
 				data.set(request.getAno(),(request.getMes()-1),request.getDia());
@@ -65,20 +67,24 @@ public class PessoaController extends Controller {
 			return ok(Json.toJson(response));
 		}
 		
+		peso = Double.parseDouble(request.getPeso().toString());
 	
-		if (pessoa.validarPeso(request.getPeso())) {
-			pessoa.setPeso(request.getPeso());
+		if (pessoa.validarPeso(peso)) {
+			pessoa.setPeso(peso);
 		} else {
 			response = new AbstractResponse(AbstractResponse.IconEnum.WARNING_SIGN.getDesc(),
 					AbstractResponse.TypeEnum.WARNING.getDescricao(), "Verifique o campo Peso");
 			return ok(Json.toJson(response));
 		}
 		
+		
+		/** valida se foi selecionado alguma uf **/
 		if (!pessoa.validaUf(request.getUf())) {
 			pessoa.setUf(request.getUf());
 		}		
 		
 		
+		/** Verifica se existem pessoas com o mesmo cpf **/
 		if (pessoa.validarCpfIgual(pessoa)) {
 			pessoa.setNome(request.getNome());
 			pessoa.editarPessoaModel(pessoa);
@@ -104,11 +110,13 @@ public class PessoaController extends Controller {
 		Pessoa pessoa = new Pessoa();
 		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		Calendar data = Calendar.getInstance();
+		Double peso;
 
-		// Setando atributos de pessoas com os valores passados pelo front-end
+
 		pessoa.setCpf(Long.parseLong(request.getCpf()));
 		pessoa.setNome(request.getNome());
-	
+		
+		/** Verifica entrada de dados erradas de peso e data  */
 		if (pessoa.validarData(request.getAno(),(request.getMes()),request.getDia())) {
 			if (request.getAno() > 0 && (request.getMes()) > 0 && request.getDia() > 0) {
 				data.set(request.getAno(),(request.getMes()-1),request.getDia());
@@ -119,22 +127,24 @@ public class PessoaController extends Controller {
 					AbstractResponse.TypeEnum.WARNING.getDescricao(), "Verifique o campo Data de Nascimento");
 			return ok(Json.toJson(response));
 		}
+
 		
-	
-		if (pessoa.validarPeso(request.getPeso())) {
-			pessoa.setPeso(request.getPeso());
+		peso = Double.parseDouble(request.getPeso().toString());
+			
+		if (pessoa.validarPeso(peso)) {
+			pessoa.setPeso(peso);
 		} else {
 			response = new AbstractResponse(AbstractResponse.IconEnum.WARNING_SIGN.getDesc(),
 					AbstractResponse.TypeEnum.WARNING.getDescricao(), "Verifique o campo Peso");
 			return ok(Json.toJson(response));
 		}
 		
+		/** valida se foi selecionado alguma uf **/
 		if (!pessoa.validaUf(request.getUf())) {
 			pessoa.setUf(request.getUf());
 		}		
 			
-		// Condição para retornar mensagem para Toast pela classe
-		// AbstractResponse
+		/** Verifica se existem pessoas com o mesmo cpf **/
 		if (!pessoa.validarCpfIgual(pessoa)) {
 			response = new AbstractResponse(AbstractResponse.IconEnum.THUMBS_UP.getDesc(),
 					AbstractResponse.TypeEnum.SUCCESS.getDescricao(), "Pessoa adicionada com Sucesso!");
@@ -145,7 +155,7 @@ public class PessoaController extends Controller {
 					AbstractResponse.TypeEnum.WARNING.getDescricao(), " CPF da pessoa já existe!");
 		}
 
-		// Chamar função para cadastrar pessoa
+		
 		pessoa.cadastrarPessoaModel(pessoa);
 
 		return ok(Json.toJson(response));

@@ -1,15 +1,9 @@
-2018-03-09 17:07:02,568 - [INFO] - from play in pool-6-thread-4 
+2018-03-11 17:36:11,417 - [INFO] - from play in pool-5-thread-8 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2018-03-09 17:07:08,631 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:postgresql://localhost:5432/gt4w
+2018-03-11 17:37:32,142 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:postgresql://localhost:5432/pessoa
 
-2018-03-09 17:07:10,184 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2018-03-09 17:16:44,514 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:postgresql://localhost:5432/gt4w
-
-2018-03-09 17:16:44,605 - [INFO] - from play in play-internal-execution-context-1 
+2018-03-11 17:37:33,554 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 

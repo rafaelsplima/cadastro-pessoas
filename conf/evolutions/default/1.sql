@@ -7,7 +7,7 @@ create table pessoa (
   cpf                       bigint not null,
   nome                      varchar(255),
   data_nascimento           varchar(255),
-  peso                      decimal(38),
+  peso                      float,
   uf                        varchar(255),
   constraint pk_pessoa primary key (cpf))
 ;

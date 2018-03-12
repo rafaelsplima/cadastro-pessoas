@@ -33,7 +33,7 @@ public class Pessoa extends Model {
 
 	private String dataNascimento = "n/d";
 
-	private BigDecimal peso = BigDecimal.ZERO;
+	private Double peso = 0d;
 
 	private String uf = "n/d";
 
@@ -65,11 +65,11 @@ public class Pessoa extends Model {
 		return dataNascimento;
 	}
 
-	public BigDecimal getPeso() {
+	public Double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(BigDecimal peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 
@@ -125,10 +125,8 @@ public class Pessoa extends Model {
 	 * @return true - se válida
 	 *         false - se inválida
 	 */
-	public boolean validarPeso (BigDecimal peso) {
-		int p = peso.compareTo(BigDecimal.ZERO);
-		
-		if (p > 0|| p == 0) {
+	public boolean validarPeso (Double peso) {
+		if (peso > 0d|| peso == 0) {
 			return true;
 		} else {
 			return false;
