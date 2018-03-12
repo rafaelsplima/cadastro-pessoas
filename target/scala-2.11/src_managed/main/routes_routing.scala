@@ -1,6 +1,6 @@
 // @SOURCE:/home/rafael/Documentos/cadastro-pessoas/conf/routes
-// @HASH:5bcc6d0f015d7f8ddadbc5af3f0ca5ac0318afdd
-// @DATE:Mon Mar 12 10:42:33 BRT 2018
+// @HASH:b9215604323b7342a945a6d63ac2966b8d63fbff
+// @DATE:Mon Mar 12 14:53:13 BRT 2018
 
 
 import play.core._
@@ -68,10 +68,10 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "in
         
 
 // @LINE:13
-private[this] lazy val controllers_PessoaController_findAllPessoas5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pessoaController/findAllPessoas"))))
-private[this] lazy val controllers_PessoaController_findAllPessoas5_invoker = createInvoker(
-controllers.PessoaController.findAllPessoas(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "findAllPessoas", Nil,"GET", """Pessoas""", Routes.prefix + """pessoaController/findAllPessoas"""))
+private[this] lazy val controllers_PessoaController_listAllPessoas5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pessoaController/listAllPessoas"))))
+private[this] lazy val controllers_PessoaController_listAllPessoas5_invoker = createInvoker(
+controllers.PessoaController.listAllPessoas(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "listAllPessoas", Nil,"GET", """Pessoas""", Routes.prefix + """pessoaController/listAllPessoas"""))
         
 
 // @LINE:14
@@ -94,7 +94,7 @@ private[this] lazy val controllers_PessoaController_editarPessoa8_invoker = crea
 controllers.PessoaController.editarPessoa(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "editarPessoa", Nil,"POST", """""", Routes.prefix + """pessoaController/editarPessoa"""))
         
-def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.versioned(path:String = "/public", file:Asset)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix,"""controllers.PessoaController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """cadastropessoas""","""controllers.PessoaController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """cadastropessoas/""","""controllers.PessoaController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/findAllPessoas""","""controllers.PessoaController.findAllPessoas()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/cadastrarPessoa""","""controllers.PessoaController.cadastrarPessoa()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/deletarPessoa/$cpf<[^/]+>""","""controllers.PessoaController.deletarPessoa(cpf:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/editarPessoa""","""controllers.PessoaController.editarPessoa()""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.versioned(path:String = "/public", file:Asset)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix,"""controllers.PessoaController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """cadastropessoas""","""controllers.PessoaController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """cadastropessoas/""","""controllers.PessoaController.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/listAllPessoas""","""controllers.PessoaController.listAllPessoas()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/cadastrarPessoa""","""controllers.PessoaController.cadastrarPessoa()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/deletarPessoa/$cpf<[^/]+>""","""controllers.PessoaController.deletarPessoa(cpf:Long)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pessoaController/editarPessoa""","""controllers.PessoaController.editarPessoa()""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -143,9 +143,9 @@ case controllers_PessoaController_index4_route(params) => {
         
 
 // @LINE:13
-case controllers_PessoaController_findAllPessoas5_route(params) => {
+case controllers_PessoaController_listAllPessoas5_route(params) => {
    call { 
-        controllers_PessoaController_findAllPessoas5_invoker.call(controllers.PessoaController.findAllPessoas())
+        controllers_PessoaController_listAllPessoas5_invoker.call(controllers.PessoaController.listAllPessoas())
    }
 }
         

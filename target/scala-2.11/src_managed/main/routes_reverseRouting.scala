@@ -1,6 +1,6 @@
 // @SOURCE:/home/rafael/Documentos/cadastro-pessoas/conf/routes
-// @HASH:5bcc6d0f015d7f8ddadbc5af3f0ca5ac0318afdd
-// @DATE:Mon Mar 12 10:42:33 BRT 2018
+// @HASH:b9215604323b7342a945a6d63ac2966b8d63fbff
+// @DATE:Mon Mar 12 14:53:13 BRT 2018
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -58,17 +58,17 @@ def versioned(file:Asset): Call = {
 class ReversePessoaController {
 
 
+// @LINE:13
+def listAllPessoas(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "pessoaController/listAllPessoas")
+}
+                        
+
 // @LINE:14
 def cadastrarPessoa(): Call = {
    import ReverseRouteContext.empty
    Call("POST", _prefix + { _defaultPrefix } + "pessoaController/cadastrarPessoa")
-}
-                        
-
-// @LINE:13
-def findAllPessoas(): Call = {
-   import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "pessoaController/findAllPessoas")
 }
                         
 
@@ -158,23 +158,23 @@ def versioned : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReversePessoaController {
 
 
+// @LINE:13
+def listAllPessoas : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.PessoaController.listAllPessoas",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "pessoaController/listAllPessoas"})
+      }
+   """
+)
+                        
+
 // @LINE:14
 def cadastrarPessoa : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PessoaController.cadastrarPessoa",
    """
       function() {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "pessoaController/cadastrarPessoa"})
-      }
-   """
-)
-                        
-
-// @LINE:13
-def findAllPessoas : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.PessoaController.findAllPessoas",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "pessoaController/findAllPessoas"})
       }
    """
 )
@@ -271,15 +271,15 @@ def versioned(path:String, file:Asset): play.api.mvc.HandlerRef[_] = new play.ap
 class ReversePessoaController {
 
 
-// @LINE:14
-def cadastrarPessoa(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.PessoaController.cadastrarPessoa(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "cadastrarPessoa", Seq(), "POST", """""", _prefix + """pessoaController/cadastrarPessoa""")
+// @LINE:13
+def listAllPessoas(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.PessoaController.listAllPessoas(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "listAllPessoas", Seq(), "GET", """Pessoas""", _prefix + """pessoaController/listAllPessoas""")
 )
                       
 
-// @LINE:13
-def findAllPessoas(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.PessoaController.findAllPessoas(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "findAllPessoas", Seq(), "GET", """Pessoas""", _prefix + """pessoaController/findAllPessoas""")
+// @LINE:14
+def cadastrarPessoa(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.PessoaController.cadastrarPessoa(), HandlerDef(this.getClass.getClassLoader, "", "controllers.PessoaController", "cadastrarPessoa", Seq(), "POST", """""", _prefix + """pessoaController/cadastrarPessoa""")
 )
                       
 

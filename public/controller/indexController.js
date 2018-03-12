@@ -26,7 +26,7 @@ moduleIndexVar.controller('indexController', ['$rootScope', '$scope', '$http', '
 	findTabelaPessoas();
 	
 	function findTabelaPessoas() {
-		$http.get('/pessoaController/findAllPessoas').
+		$http.get('/pessoaController/listAllPessoas').
 		success(function(responseData) {
 			$scope.pessoaList = responseData;
 		});

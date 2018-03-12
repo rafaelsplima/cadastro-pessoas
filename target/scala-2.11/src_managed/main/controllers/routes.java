@@ -1,6 +1,6 @@
 // @SOURCE:/home/rafael/Documentos/cadastro-pessoas/conf/routes
-// @HASH:5bcc6d0f015d7f8ddadbc5af3f0ca5ac0318afdd
-// @DATE:Mon Mar 12 10:42:33 BRT 2018
+// @HASH:b9215604323b7342a945a6d63ac2966b8d63fbff
+// @DATE:Mon Mar 12 14:53:13 BRT 2018
 
 package controllers;
 

@@ -89,7 +89,7 @@ public class Pessoa extends Model {
 	 * @return Pessoa
 	 */
 
-	public Pessoa findByCPF(Long cpf) {
+	public Pessoa buscarCpf(Long cpf) {
 		return find.where().eq("cpf", cpf).findUnique();
 	}
 
@@ -98,7 +98,7 @@ public class Pessoa extends Model {
 	 * 
 	 * @return Lista de pessoas
 	 */
-	public List<Pessoa> findAllPessoa() {
+	public List<Pessoa> listPessoas() {
 		return find.all();
 	}
 
@@ -112,7 +112,7 @@ public class Pessoa extends Model {
 	 */
 	public  boolean validarCpfIgual(Pessoa pessoa) {
 
-		if (pessoa.findByCPF(pessoa.getCpf()) != null) {
+		if (pessoa.buscarCpf(pessoa.getCpf()) != null) {
 			return true;
 		} else {
 			return false;
@@ -208,7 +208,7 @@ public class Pessoa extends Model {
 	 */
 	public void deletarModel(Long cpf) {
 		try {
-			Pessoa pessoa = this.findByCPF(cpf);
+			Pessoa pessoa = this.buscarCpf(cpf);
 			if (pessoa != null) {
 				pessoa.delete();
 			}

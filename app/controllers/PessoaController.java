@@ -32,9 +32,9 @@ public class PessoaController extends Controller {
 	 * 
 	 * @return
 	 */
-	public static Result findAllPessoas() {
+	public static Result listAllPessoas() {
 		Pessoa lstPessoa = new Pessoa();
-		return ok(Json.toJson(lstPessoa.findAllPessoa()));
+		return ok(Json.toJson(lstPessoa.listPessoas()));
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class PessoaController extends Controller {
 		PessoaRequestDTO request = form.get();
 		AbstractResponse response = null;
 		Pessoa pessoa = new Pessoa();
-		pessoa = pessoa.findByCPF(Long.parseLong(request.getCpf()));
+		pessoa = pessoa.buscarCpf(Long.parseLong(request.getCpf()));
 		Double peso;
 		
 		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
@@ -171,7 +171,7 @@ public class PessoaController extends Controller {
 	public static Result deletarPessoa(Long cpf) {
 		AbstractResponse response = null;
 		Pessoa pessoa = new Pessoa(); 
-		pessoa = pessoa.findByCPF(cpf);
+		pessoa = pessoa.buscarCpf(cpf);
 		if (pessoa != null) {
 			try {
 				pessoa.deletarModel(cpf);

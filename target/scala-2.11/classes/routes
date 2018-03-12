@@ -10,7 +10,7 @@ GET     /cadastropessoas                      	    												controllers.Pesso
 GET     /cadastropessoas/	                        												controllers.PessoaController.index()
 
 #Pessoas
-GET	 /pessoaController/findAllPessoas														controllers.PessoaController.findAllPessoas()
+GET	 /pessoaController/listAllPessoas														controllers.PessoaController.listAllPessoas()
 POST /pessoaController/cadastrarPessoa														controllers.PessoaController.cadastrarPessoa()
 GET	 /pessoaController/deletarPessoa/:cpf													controllers.PessoaController.deletarPessoa(cpf: Long)
 POST /pessoaController/editarPessoa															controllers.PessoaController.editarPessoa()
