@@ -15,7 +15,8 @@
 				<form novalidate name="adicionarPessoaForm" class="form-horizontal">
 					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-md-3" for="textCpf">CPF<span class = "campo-requerid">*</span></label>
+						<label class="col-md-3" for="textCpf">CPF<span
+							class="campo-requerid">*</span></label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 							<input id="textCpf" name="textCpf" type="text" ng-model="cpf"
 								placeholder="Insira o cpf" class="form-control input-md"
@@ -23,12 +24,13 @@
 							<div class="text-left"
 								ng-show="adicionarPessoaForm.textCpf.$touched && 
 											adicionarPessoaForm.textCpf.$error.required">
-								<span class ="campo-requerid"> <b> Cpf obrigatório <b></span>
+								<span class="campo-requerid"> <b> Cpf obrigatório <b></span>
 							</div>
 						</div>
 
 
-						<label class="col-md-3" for="txtNome">Nome<span class = "campo-requerid">*</span></label>
+						<label class="col-md-3" for="txtNome">Nome<span
+							class="campo-requerid">*</span></label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 							<input id="textNome" name="textNome" type="text" ng-model="nome"
 								placeholder="Insira o nome" class="form-control input-md"
@@ -37,7 +39,8 @@
 							<div class="text-left"
 								ng-show="adicionarPessoaForm.textNome.$touched && 
 											adicionarPessoaForm.textNome.$error.required">
-								<span class ="campo-requerid"> <b> Nome obrigatório </b> </span>		
+								<span class="campo-requerid"> <b> Nome obrigatório </b>
+								</span>
 							</div>
 						</div>
 
@@ -62,6 +65,7 @@
 						<label class="col-md-3" for="nome">Peso:</label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 							<input id="textPeso" name="textPeso" type="text"
+								onkeypress="return numerico(event);"
 								ng-model="peso" placeholder="peso" class="form-control input-md" />
 						</div>
 
@@ -69,8 +73,8 @@
 						<label class="col-md-3" for="textinputArea">UF</label>
 						<div style="margin-bottom: 10px;" class="col-md-9">
 
-							<select class="form-control select-md" ng-model="uf.id" name="textinputArea" 
-							id = "textinputArea">
+							<select class="form-control select-md" ng-model="uf.id"
+								name="textinputArea" id="textinputArea">
 								<option value="" disabled>Selecione UF</option>
 								<option ng-repeat="geoname in ufList.geonames"
 									value="{{geoname.name}}">{{geoname.name}}</option>
@@ -86,12 +90,13 @@
 			<div class="col-md-12">
 				<div class="col-md-6">
 					<button id="singlebutton" name="singlebutton"
-						class="btn btn-success width100" ng-disabled="adicionarPessoaForm.$invalid"
+						class="btn btn-success width100"
+						ng-disabled="adicionarPessoaForm.$invalid"
 						ng-click="adicionarPessoa()">Adicionar</button>
 				</div>
 				<div class="col-md-6">
-					<button type="button" ng-click="fechar()" class="btn btn-danger width100 ">
-						Fechar</button>
+					<button type="button" ng-click="fechar()"
+						class="btn btn-danger width100 ">Fechar</button>
 				</div>
 			</div>
 		</div>

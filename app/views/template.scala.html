@@ -25,7 +25,7 @@
 		}
 	
 	
-		/* Função que só permite caracteres númericos no campo */
+		/* Função que restringe letras no campo */
 		function numerico(evt) {
 		  var key_code = evt.keyCode ? evt.keyCode : evt.charCode ? evt.charCode : evt.which ? evt.which : void 0;
 		  if (key_code == 8 || key_code == 9 || key_code == 13 || key_code == 27 || key_code == 46) {
@@ -37,7 +37,6 @@
 		  }
 		  return false;
 		}
-
 	</script>
 	
 	
